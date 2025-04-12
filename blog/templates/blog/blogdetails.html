@@ -1,0 +1,29 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}Blog Details{% endblock %}
+
+{% block content %}
+    <h2 class="mb-3">{{ blog.title }}</h2>
+    <p class="text-muted">
+        By {{ blog.author.username }} | {{ blog.date_published|date:"F j, Y" }} | Category: {{ blog.category.name }}
+    </p>
+    
+    <div class="mb-4">
+        {{ blog.content|linebreaks }}
+    </div>
+
+    <hr>
+
+    <h4>Comments</h4>
+    <ul class="list-group">
+        {% for comment in comments %}
+            <li class="list-group-item">
+                <strong>{{ comment.user.username }}:</strong> {{ comment.content }}
+                <br>
+                <small class="text-muted">{{ comment.date_posted|date:"F j, Y, g:i a" }}</small>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No comments yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

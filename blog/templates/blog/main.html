@@ -1,0 +1,14 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}Main Page{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Welcome to My Blog!</h2>
+    <p>Choose a page to explore:</p>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{% url 'users' %}">View Users</a></li>
+        <li class="list-group-item"><a href="{% url 'blogs' %}">View Blog Posts</a></li>
+        <li class="list-group-item"><a href="{% url 'comments' %}">View Comments</a></li>
+        <li class="list-group-item"><a href="{% url 'categories' %}">View Categories</a></li>
+    </ul>
+{% endblock %}

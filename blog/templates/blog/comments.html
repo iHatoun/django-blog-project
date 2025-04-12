@@ -1,0 +1,31 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">All Comments</h2>
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Comment</th>
+                <th>Blog Post</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in comments %}
+                <tr>
+                    <td>{{ comment.content }}</td>
+                    <td>
+                        <a href="{% url 'blogdetails' comment.blog.id %}">
+                            {{ comment.blog.title }}
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No comments available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
