@@ -1,5 +1,4 @@
 # Django Blog Website
-
 مشروع Django لإنشاء مدونة.
 
 ## الوصف
